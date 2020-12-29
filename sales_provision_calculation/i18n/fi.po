@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sales_provision_calculation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-23 07:37+0000\n"
+"PO-Revision-Date: 2020-12-23 07:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report__display_name
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move__display_name
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_res_users__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report__id
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move__id
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_res_users__id
+msgid "ID"
+msgstr "Tunniste (ID)"
+
+#. module: sales_provision_calculation
+#: model:ir.model,name:sales_provision_calculation.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Laskutilastot"
+
+#. module: sales_provision_calculation
+#: model:ir.model,name:sales_provision_calculation.model_account_move
+msgid "Journal Entry"
+msgstr "Päiväkirjan kirjaus"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report____last_update
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move____last_update
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_res_users____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_bank_statement_line__margin
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report__margin
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move__margin
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_payment__margin
+msgid "Margin"
+msgstr "Marginaali"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_bank_statement_line__provision_amount
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report__provision_amount
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move__provision_amount
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_payment__provision_amount
+msgid "Provision"
+msgstr "Provisio"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_bank_statement_line__sales_provision_percentage
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_invoice_report__sales_provision_percentage
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_move__sales_provision_percentage
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_account_payment__sales_provision_percentage
+msgid "Provision-%"
+msgstr "Provisio %"
+
+#. module: sales_provision_calculation
+#: model:ir.model.fields,field_description:sales_provision_calculation.field_res_users__sales_provision_percentage
+msgid "Sales Provision-%"
+msgstr "Myyntiprovisio %"
+
+#. module: sales_provision_calculation
+#: model:ir.model,name:sales_provision_calculation.model_res_users
+msgid "Users"
+msgstr "Käyttäjät"
