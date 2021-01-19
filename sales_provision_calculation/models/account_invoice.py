@@ -8,13 +8,13 @@ from odoo import fields, models, api
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    sales_provision_percentage = fields.Float(string='Provision-%', store=True, default=lambda self: self.env.user.sales_provision_percentage)
+    sales_provision_percentage = fields.Float(string='Provision-%', store=True,
+                                              compute='onchange_user_id_sale_provision')
     provision_amount = fields.Float(string='Provision', compute='_get_provision_amount', store=True)
     margin = fields.Float(string='Margin', compute='_get_provision_amount', store=True)
 
-    @api.onchange('invoice_user_id')
-    def onchange_user_id(self):
-        super(AccountMove, self).onchange_user_id()
+    @api.depends('invoice_user_id')
+    def onchange_user_id_sale_provision(self):
         if self.invoice_user_id:
             if self.invoice_user_id.sales_provision_percentage:
                 self.sales_provision_percentage = self.invoice_user_id.sales_provision_percentage
