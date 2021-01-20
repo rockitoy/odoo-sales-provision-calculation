@@ -48,10 +48,26 @@ class AccountMove(models.Model):
 class AccountInvoiceReport(models.Model):
     _inherit = "account.invoice.report"
 
-    # sales_provision_percentage = fields.Float(string='Provision-%', readonly=True)
     provision_amount = fields.Float(string='Provision', readonly=True)
-    margin = fields.Float(string='Margin', readonly=True)
+    # margin = fields.Float(string='Margin', readonly=True)
+    line_margin = fields.Float("Margin", readonly=True)
 
     @api.model
     def _select(self):
-        return super(AccountInvoiceReport, self)._select() + ', move.provision_amount, move.margin'
+        return super(AccountInvoiceReport, self)._select() + ', move.provision_amount, line.line_margin'
+
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+
+    line_margin = fields.Float(
+        "Margin", compute='_compute_margin',
+        digits='Product Price', store=True,)
+
+    @api.depends('price_subtotal', 'quantity')
+    def _compute_margin(self):
+        for line in self:
+            if line.product_id.standard_price:
+                line.line_margin = line.price_subtotal - (line.product_id.standard_price * line.quantity)
+            else:
+                line.line_margin = 0.00
