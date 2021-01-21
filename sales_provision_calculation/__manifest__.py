@@ -4,7 +4,7 @@
 
 {
     "name": "Sales Provision Calculation",
-    "version": '14.0.0.4',
+    "version": '14.0.0.5',
     "category": 'Sales',
     "summary": """
                 Sales Provision Calculation
