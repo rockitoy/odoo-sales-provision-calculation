@@ -51,11 +51,15 @@ class AccountInvoiceReport(models.Model):
     # provision_amount = fields.Float(string='Provision', readonly=True)
     # margin = fields.Float(string='Margin', readonly=True)
     line_margin = fields.Float("Margin", readonly=True)
-    line_provision_amount = fields.Float(string='Provision', store=True)
+    line_provision_amount = fields.Float(string='Provision')
 
     @api.model
     def _select(self):
-        return super(AccountInvoiceReport, self)._select() + ', line.line_provision_amount, line.line_margin'
+        # return super(AccountInvoiceReport, self)._select() + ', line.line_provision_amount, line.line_margin'
+
+        return super(AccountInvoiceReport, self)._select() + """, line.line_provision_amount * 
+        (CASE WHEN move.move_type IN ('in_refund','out_refund') THEN -1 ELSE 1 END) AS line_provision_amount, 
+        line.line_margin * (CASE WHEN move.move_type IN ('in_refund','out_refund') THEN -1 ELSE 1 END) AS line_margin"""
 
 
 class AccountMoveLine(models.Model):
