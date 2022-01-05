@@ -65,13 +65,13 @@ class AccountInvoiceReport(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    line_margin = fields.Float("Margin", compute='_compute_margin', digits='Product Price', store=True, )
+    line_margin = fields.Float("Margin", compute='_compute_margin', digits='Product Price', store=True)
     line_provision_amount = fields.Float(string='Provision', store=True)
 
     @api.depends('price_subtotal', 'quantity')
     def _compute_margin(self):
         for line in self:
-            line.line_margin = line.price_subtotal - (line.product_id.standard_price * line.quantity)
+            line.line_margin = line.price_subtotal - (line.sale_line_ids.purchase_price * line.quantity)
 
             if line.price_subtotal and line.move_id.sales_provision_percentage and line.line_margin:
                 line.line_provision_amount = (line.line_margin * line.move_id.sales_provision_percentage) / 100
